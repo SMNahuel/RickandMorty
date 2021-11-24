@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+$color-nav: #C7FFBE;
+$color-nav-letter: #0B4619;
+$color-card: #0B4619;
+$status-live: #B2EA70;
+$status-death: #C85C5C;
+$letter-color: #fff;
+$font-family: 'Rock Salt', cursive;
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    background-image: url("../assets/wp7310601.jpg");
+}
+
+.navbar{
+    background-color: $color-nav;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    p{
+        font-family: $font-family;
+        color: $color-nav-letter;
+        margin-left: 2em;
+    }
+}
+
+.cardContainer{
+    padding: 2em;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    grid-gap: 20px 20px;
+}
+
+.cardCharacter{
+
+    background-color: $color-card;
+    border-radius: 30px;
+    padding: 1em;
+    img{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+    img:last-child{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-left: -60px;
+    }
+    p{
+        margin-left: 1em;
+        font-family: $font-family;
+        color: $letter-color;
+    }
+}
