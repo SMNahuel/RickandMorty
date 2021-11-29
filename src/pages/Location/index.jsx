@@ -1,40 +1,53 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, connect } from 'react-redux';
-import { requestTo } from 'utils/page';
-
+import { requestTo, firstRequest, requestResidents } from 'utils/page';
+import { useNavigate } from 'react-router';
 const Location = ({ locations }) => {
-
+    const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const [location, setLocation] = useState({
-        locations: [],
-        next: '',
-        prev: '',
-        pages: []
-    });
-
     useEffect(() => {
-        axios.get("https://rickandmortyapi.com/api/location")
-            .then(data => setLocation({ locations: data.data.results, next: data.data.info.next, prev: data.data.info.prev }))
+        firstRequest(dispatch)
     }, []);
+
+    const handleResidents = (residents) => {
+        requestResidents(dispatch, residents, navigate)
+    }
 
     return (
         <div className="container">
             <div className="ContainerCards">
-                {location.locations.map((location, index) => (
+                {locations.data.map((location, index) => (
                     <div key={index} className="card">
-                        <div className="card-body">
+                        <div className="cardBody">
                             <h5 className="card-title">{location.name}</h5>
                             <p className="card-text">{location.type}</p>
                             <p className="card-text">{location.dimension}</p>
+                            {
+                                location.residents.length === 0 ? 
+                                <button className="buttonResidentes">Sin residentes :(</button> : 
+                                <button className="buttonResidentes" onClick={() => handleResidents(location.residents)}>Residentes</button>
+                            }
+
                         </div>
                     </div>
                 ))}
             </div>
             <div className="containerButton">
-                <button className="buttonPage" onClick={() => requestTo(dispatch, location.next)}>Back</button>
-                <button className="buttonPage" onClick={() => requestTo(dispatch, location.next)}>Next</button>
+                {
+                    !locations.prev ?
+                        <button className="buttonPageDisable">Back</button>
+                        :
+                        <button className="buttonPage" onClick={() => requestTo(dispatch, locations.prev)}>Back</button>
+                }
+
+                {
+                    !locations.next ?
+                        <button className="buttonPageDisable">Next</button>
+                        :
+                        <button className="buttonPage" onClick={() => requestTo(dispatch, locations.next)}>Next</button>
+                }
+
             </div>
         </div>
     );

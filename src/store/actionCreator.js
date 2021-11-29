@@ -5,9 +5,9 @@ export const SearchInput = (text) => {
     }
 }
 
-export const REQUEST_LOCATION = (locations) => {
+export const FIRST_REQUEST_LOCATION = (locations) => {
     return{
-        type: "REQUEST_LOCATION",
+        type: "FIRST_REQUEST_LOCATION",
         payload: locations
     }
 }
@@ -23,5 +23,12 @@ export const PREV_LOCATION = (locations) => {
     return{
         type: "PREV_LOCATION",
         payload: locations
+    }
+}
+
+export const REQUEST_TO_RESIDENTS = (residents) => {
+    return{
+        type: "REQUEST_TO_RESIDENTS",
+        payload: residents
     }
 }

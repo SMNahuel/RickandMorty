@@ -13,12 +13,12 @@ const Card = ({ character }) => {
           <p>{character.name}</p>
           {character.gender === "Female" && (
             <span tooltip={character.gender}>
-              <img src={Female} />
+              <img src={Female} alt="genderFemale" />
             </span>
           )}
           {character.gender === "Male" && (
             <span tooltip={character.gender}>
-              <img src={Male} />
+              <img src={Male} alt="genderMale"/>
             </span>
           )}
           {character.gender === "unknown" && (
@@ -27,11 +27,11 @@ const Card = ({ character }) => {
             </span>
           )}
         </div>
-        <img src={character.image} />
+        <img src={character.image} alt="characterImage"/>
         <span tooltip={character.status}>
-          {character.status === "Alive" && <img src={Alive} />}
-          {character.status === "Dead" && <img src={Death} />}
-          {character.status === "unknown" && <img src={Unknown}/>}
+          {character.status === "Alive" && <img src={Alive} alt="statusAlive"/>}
+          {character.status === "Dead" && <img src={Death} alt="statusDeath"/>}
+          {character.status === "unknown" && <img src={Unknown} alt="statusUnknown"/>}
         </span>
       </div>
       <div>

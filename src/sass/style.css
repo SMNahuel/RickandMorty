@@ -128,9 +128,11 @@
   padding: 0;
 }
 
-.container {
+body {
   background-image: url("../assets/wp7310601.jpg");
-  height: 100%;
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+  background-color: #cccccc;
 }
 
 .containerHome {
@@ -261,6 +263,25 @@
   background-color: #c7ffbe;
 }
 
+.buttonPageDisable {
+  background-color: #558560;
+  border-radius: 30px;
+  padding: 1em;
+  margin-left: 1em;
+  font-family: "Rock Salt", cursive;
+  color: #fff;
+}
+
+.buttonResidentes {
+  cursor: pointer;
+  border: none;
+  background-color: #558560;
+  border-radius: 30px;
+  padding: 1em;
+  font-family: "Rock Salt", cursive;
+  color: #fff;
+}
+
 .containerButton {
   width: 100%;
   display: -webkit-box;
@@ -307,7 +328,7 @@
   background: transparent;
   font-family: "Rock Salt", cursive;
   outline: none;
-  border-bottom: 1px #AAA492 solid;
+  border-bottom: 1px #aaa492 solid;
 }
 
 .searchContainerCharacter a {
@@ -326,6 +347,7 @@
 }
 
 .card {
+  min-height: 250px;
   background-color: #0b4619;
   border-radius: 30px;
   padding: 1em;
@@ -334,5 +356,16 @@
 
 .card p {
   color: #fff;
+}
+
+.cardBody {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 /*# sourceMappingURL=style.css.map */

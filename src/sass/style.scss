@@ -6,10 +6,11 @@
   margin: 0;
   padding: 0;
 }
-
-.container {
+body {
   background-image: url("../assets/wp7310601.jpg");
-  height: 100%;
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+  background-color: #cccccc;
 }
 
 .containerHome {
@@ -20,7 +21,7 @@
   justify-content: center;
   align-items: center;
   font-family: $font-family;
-  div{
+  div {
     display: flex;
     width: 200px;
     height: 200px;
@@ -31,21 +32,19 @@
     justify-content: center;
     cursor: pointer;
   }
-  .Character{
+  .Character {
     background-color: $color-character;
   }
-  .Episode{
+  .Episode {
     background-color: $color-episode;
   }
-  .Location{
+  .Location {
     background-color: $color-location;
   }
-  .Species{
+  .Species {
     background-color: $color-species;
   }
 }
-
-
 
 .navbar {
   background-color: $color-nav;
@@ -109,6 +108,24 @@
     background-color: $color-button-hover;
   }
 }
+.buttonPageDisable {
+  background-color: $color-button-disable;
+  border-radius: 30px;
+  padding: 1em;
+  margin-left: 1em;
+  font-family: $font-family;
+  color: $letter-color;
+}
+
+.buttonResidentes {
+  cursor: pointer;
+  border: none;
+  background-color: $color-button-disable;
+  border-radius: 30px;
+  padding: 1em;
+  font-family: $font-family;
+  color: $letter-color;
+}
 
 .containerButton {
   width: 100%;
@@ -138,22 +155,22 @@
     background: transparent;
     font-family: $font-family;
     outline: none;
-    border-bottom: 1px #AAA492 solid;
+    border-bottom: 1px #aaa492 solid;
   }
-  a{
+  a {
     font-family: $font-family;
     text-decoration: none;
     color: $color-button;
   }
 }
-.ContainerCards{
+.ContainerCards {
   padding: 1em;
   display: grid;
   grid-template-columns: repeat(5, minmax(200px, 1fr));
   grid-gap: 20px 20px;
 }
-.card{
-
+.card {
+  min-height: 250px ;
   background-color: $color-card;
   border-radius: 30px;
   padding: 1em;
@@ -161,4 +178,9 @@
   p {
     color: $letter-color;
   }
+}
+.cardBody {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }

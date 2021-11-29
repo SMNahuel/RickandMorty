@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 import Card from 'components/Card';
 
 
-const Character = React.memo(({search}) => {
+const Character = ({search}) => {
 
     const [data, setData] = useState({
         character:[],
@@ -64,7 +64,7 @@ const Character = React.memo(({search}) => {
             </div>
         </div>
     );
-});
+};
 
 const mapStateToProps = (state) => ({
     search: state.search

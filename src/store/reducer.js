@@ -5,8 +5,9 @@ const initialStore = {
   locations: {
     data: [],
     next: [],
-    prev: []
+    prev: [],
   },
+  residents: [],
   loading: false,
 };
 
@@ -17,16 +18,22 @@ function reducer(state = initialStore, action) {
         ...state,
         search: action.payload,
       };
+    case "FIRST_REQUEST_LOCATION":
+    case "PREV_LOCATION":
     case "NEXT_LOCATION":
-      return{
+      return {
         ...state,
-        locations:{
+        locations: {
           data: action.payload.data.results,
           next: action.payload.data.info.next,
           prev: action.payload.data.info.prev,
-        }
+        },
+      };
+    case "REQUEST_TO_RESIDENTS":
+      return{
+        ...state,
+        residents: action.payload
       }
-    case "PREV_LOCATION":
     default:
       return { ...state };
   }

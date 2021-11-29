@@ -1,23 +1,30 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import Card from 'components/Card';
+import { useEffect, useState } from 'react';
+/* -------------------------------------------------Redux */
+import { connect } from "react-redux";
 
-const Residents = ({ url }) => {
-    const [residents, setResidents] = useState([])
-    useEffect(() => {
-        axios.get(url).then(result => {
-            setResidents(result.data.results)
-        })
-    })
+const Residents = ({ residents }) => {
+    const [state, setState ] = useState(residents)
+    useEffect(()=> {
+        setState(residents)
+    },[residents])
     return (
         <div>
-            {
-                residents.map(resident => {
-                    <Card character={resident}/>
-                })
-            }
+            <div className="cardContainer">
+                {
+                    state.map((character) => {
+                        return (
+                            <Card character={character} key={character.id} />
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }
 
-export default Residents;
+const mapStateToProps = (state) => ({
+    residents: state.residents
+})
+
+export default connect(mapStateToProps)(Residents);

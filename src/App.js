@@ -12,6 +12,7 @@ import Navbar from "components/Navbar";
 /* -------------------------------------------------Pages */
 import Home from "pages/Home";
 import Location from "pages/Location";
+import Residents from "pages/Residents";
 import Episodes from "pages/Episodes";
 import Character from "pages/Characters";
 
@@ -29,9 +30,10 @@ function App() {
       <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/character" element={<Character />} />
-          <Route path="/locations" element={<Location />} />
           <Route path="/episode" element={<Episodes />} />
+          <Route path="/character" element={<Character />} />
+          <Route exact path="/locations" element={<Location />} />
+          <Route path="/locations/residents" element={<Residents />} />
         </Routes>
       </Router>
     </Provider>
