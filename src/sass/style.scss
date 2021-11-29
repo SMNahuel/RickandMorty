@@ -1,60 +1,164 @@
-@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import "message";
+@import "fonts";
+@import "variables";
 
-$color-nav: #C7FFBE;
-$color-nav-letter: #0B4619;
-$color-card: #0B4619;
-$status-live: #B2EA70;
-$status-death: #C85C5C;
-$letter-color: #fff;
-$font-family: 'Rock Salt', cursive;
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.container{
-    background-image: url("../assets/wp7310601.jpg");
+.container {
+  background-image: url("../assets/wp7310601.jpg");
+  height: 100%;
 }
 
-.navbar{
-    background-color: $color-nav;
-    height: 50px;
-    width: 100%;
+.containerHome {
+  background-image: url("../assets/wp7310601.jpg");
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: $font-family;
+  div{
     display: flex;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 20px;
+    text-align: center;
     align-items: center;
-    p{
-        font-family: $font-family;
-        color: $color-nav-letter;
-        margin-left: 2em;
-    }
+    justify-content: center;
+    cursor: pointer;
+  }
+  .Character{
+    background-color: $color-character;
+  }
+  .Episode{
+    background-color: $color-episode;
+  }
+  .Location{
+    background-color: $color-location;
+  }
+  .Species{
+    background-color: $color-species;
+  }
 }
 
-.cardContainer{
-    padding: 2em;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(200px, 1fr));
-    grid-gap: 20px 20px;
+
+
+.navbar {
+  background-color: $color-nav;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  p {
+    font-family: $font-family;
+    color: $color-nav-letter;
+    margin-left: 2em;
+  }
 }
 
-.cardCharacter{
+.cardContainer {
+  padding: 2em;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-gap: 20px 20px;
+}
 
-    background-color: $color-card;
-    border-radius: 30px;
-    padding: 1em;
-    img{
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-    }
-    img:last-child{
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        margin-left: -60px;
-    }
-    p{
-        margin-left: 1em;
-        font-family: $font-family;
-        color: $letter-color;
-    }
+.cardCharacter {
+  background-color: $color-card;
+  border-radius: 30px;
+  padding: 1em;
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+  img:last-child {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: -60px;
+  }
+  p {
+    margin-left: 1em;
+    font-family: $font-family;
+    color: $letter-color;
+  }
+  .provisorio {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: black;
+    margin-left: 130px;
+    margin-top: -40px;
+  }
+}
+
+.buttonPage {
+  cursor: pointer;
+  background-color: $color-button;
+  border-radius: 30px;
+  padding: 1em;
+  margin-left: 1em;
+  font-family: $font-family;
+  color: $letter-color;
+  &:hover {
+    background-color: $color-button-hover;
+  }
+}
+
+.containerButton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2em;
+}
+
+.containerInfo {
+  display: flex;
+  flex-direction: row;
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 0 !important;
+    margin: 0 20px !important;
+  }
+}
+
+.searchContainerCharacter {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  input {
+    border: none;
+    background: transparent;
+    font-family: $font-family;
+    outline: none;
+    border-bottom: 1px #AAA492 solid;
+  }
+  a{
+    font-family: $font-family;
+    text-decoration: none;
+    color: $color-button;
+  }
+}
+.ContainerCards{
+  padding: 1em;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(200px, 1fr));
+  grid-gap: 20px 20px;
+}
+.card{
+
+  background-color: $color-card;
+  border-radius: 30px;
+  padding: 1em;
+  font-family: $font-family;
+  p {
+    color: $letter-color;
+  }
 }

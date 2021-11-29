@@ -1,42 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Card from '../../components/Card';
-import Navbar from '../../components/Navbar';
-import '../../sass/style.css';
+import React from 'react';
+import { useNavigate } from "react-router-dom";
+
 
 const Home = () => {
-    const [data, setData] = useState({
-        character: [],
-        next: ''
-    });
-    useEffect(() => {
-        axios.get('https://rickandmortyapi.com/api/character/')
-            .then(res => setData({ ...data, character: res.data.results, next: res.data.info.next }))
-            .catch(err => console.log(err))
-    }, []);
-
-    const nextPage = () => {
-        axios.get(data.next)
-            .then(res => setData({ ...data, character: res.data.results, next: res.data.info.next }))
-            .catch(err => console.log(err))
-    }
-    return (
-
-        <div className="container">
-            <Navbar />
-            <div class="cardContainer">
-                {
-                    data.character && data.character.map((character) => {
-                        return (
-                            <Card character={character} />
-                        )
-                    })
-                }
-
+    let history = useNavigate();
+    return(
+        <div className="containerHome">
+            <div className="Character" onClick={() =>  history("/character")}>
+                <p>Personajes</p>
             </div>
-            <button onClick={() => nextPage()}>Next</button>
+            <div className="Episode" onClick={() =>  history("/episode")}>
+                <p>Episodios</p>
+            </div>
+            <div className="Location" onClick={() =>  history("/locations")}>
+                <p>Lugares</p>
+            </div>
+            <div className="Species" onClick={() =>  history("/speciescharacter")}>
+                <p>Especies</p>
+            </div>
         </div>
-    );
+    )
 }
 
 export default Home;
