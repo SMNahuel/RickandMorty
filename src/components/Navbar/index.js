@@ -7,7 +7,7 @@ const Navbar = () => {
   const { pathname } = useLocation();
   const [state, setState] = useState("");
   const dispatch = useDispatch();
-
+  console.log(pathname.split("/")[1])
   useEffect(() => {
     const searchChange = () => {
       dispatch(SearchInput(state));
@@ -25,14 +25,16 @@ const Navbar = () => {
       {pathname === "/episode" && (
         <div className="searchContainerCharacter" id="searchContainer">
           <p>Pagina de episodios</p>
-          <a href="/episode/season/1">Temporada 1</a>
-          <a href="/episode/season/2">Temporada 2</a>
-          <a href="/episode/season/3">Temporada 3</a>
-          <a href="/episode/season/4">Temporada 4</a>
-          <a href="/episode/season/5">Temporada 5</a>
+          <a href="/">API Rick&Morty</a>
         </div>
       )}
-      {pathname === "/character" && (
+      {pathname.split("/")[1] === "character" && (
+        <div className="searchContainerCharacter" id="searchContainer">
+          <p>Información </p>
+          <a href="/">API Rick&Morty</a>
+        </div>
+      )}
+      {pathname === "/characters" && (
         <div className="searchContainerCharacter" id="searchContainer">
           <p>Personajes</p>
           <input
@@ -46,20 +48,18 @@ const Navbar = () => {
       {pathname === "/locations" && (
         <div className="searchContainerCharacter" id="searchContainer">
           <p>Lugares de la serie</p>
+          <a href="/">API Rick&Morty</a>
         </div>
       )}
       {pathname === "/locations/residents" && (
         <div className="searchContainerCharacter" id="searchContainer">
           <p>Residentes de </p>
+          <a href="/">API Rick&Morty</a>
         </div>
       )}
       {pathname === "/spicie" && (
         <div className="searchContainerCharacter" id="searchContainer">
-          <input
-            type="text"
-            placeholder="search"
-            onChange={(e) => setState(e.target.value)}
-          />
+          <a href="/">API Rick&Morty</a>
         </div>
       )}
     </div>

@@ -4,10 +4,15 @@ import Alive from "assets/Alive.png";
 import Death from "assets/Death.png";
 import Female from "assets/female.png";
 import Unknown from "assets/Unknown.png";
+import { useNavigate } from "react-router";
 
 const Card = ({ character }) => {
+  const navigate = useNavigate()
+  const handleSelect = () => {
+    navigate(`/character/${character.id}`)
+  }
   return (
-    <div className="cardCharacter">
+    <div className="cardCharacter" onClick={() => handleSelect()}>
       <div>
         <div className="containerInfo">
           <p>{character.name}</p>

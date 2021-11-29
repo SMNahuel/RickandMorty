@@ -6,7 +6,7 @@ const Home = () => {
     let history = useNavigate();
     return(
         <div className="containerHome">
-            <div className="Character" onClick={() =>  history("/character")}>
+            <div className="Character" onClick={() =>  history("/characters")}>
                 <p>Personajes</p>
             </div>
             <div className="Episode" onClick={() =>  history("/episode")}>

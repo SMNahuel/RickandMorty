@@ -67,6 +67,7 @@ body {
 }
 
 .cardCharacter {
+  cursor: pointer;
   background-color: $color-card;
   border-radius: 30px;
   padding: 1em;
@@ -183,4 +184,32 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
+}
+
+.characterContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.espisodesContainer{
+  background-color: $color-card;
+  border-radius: 30px;
+  padding: 1em;
+  font-family: $font-family;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.episode{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  p:hover{
+    cursor: pointer;
+    color:white;
+  }
 }

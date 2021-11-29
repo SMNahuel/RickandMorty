@@ -14,7 +14,8 @@ import Home from "pages/Home";
 import Location from "pages/Location";
 import Residents from "pages/Residents";
 import Episodes from "pages/Episodes";
-import Character from "pages/Characters";
+import Characters from "./pages/Characters";
+import Character from "pages/Character";
 
 /* -------------------------------------------------Pages */
 import "./sass/style.css"
@@ -31,7 +32,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/episode" element={<Episodes />} />
-          <Route path="/character" element={<Character />} />
+          <Route exact path="/characters" element={<Characters />} />
+          <Route path="/character/:id" element={<Character />} />
           <Route exact path="/locations" element={<Location />} />
           <Route path="/locations/residents" element={<Residents />} />
         </Routes>
