@@ -7,12 +7,10 @@ const Navbar = () => {
   const { pathname } = useLocation();
   const [state, setState] = useState("");
   const dispatch = useDispatch();
-  console.log(pathname.split("/")[1])
+  const searchChange = () => {
+    dispatch(SearchInput(state));
+  };
   useEffect(() => {
-    const searchChange = () => {
-      dispatch(SearchInput(state));
-    };
-
     searchChange();
   }, [state]);
   return (
