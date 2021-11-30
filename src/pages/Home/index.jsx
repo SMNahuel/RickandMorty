@@ -15,7 +15,7 @@ const Home = () => {
             <div className="Location" onClick={() =>  history("/locations")}>
                 <p>Lugares</p>
             </div>
-            <div className="Species" onClick={() =>  history("/speciescharacter")}>
+            <div className="Species" onClick={() =>  history("/species")}>
                 <p>Especies</p>
             </div>
         </div>

@@ -1,5 +1,6 @@
 const initialStore = {
   search: null,
+  species: null,
   characters: [],
   episodes: [],
   locations: {
@@ -33,6 +34,11 @@ function reducer(state = initialStore, action) {
       return{
         ...state,
         residents: action.payload
+      }
+    case "SELECT_ESPECIES":
+      return{
+        ...state,
+        species: action.payload
       }
     default:
       return { ...state };

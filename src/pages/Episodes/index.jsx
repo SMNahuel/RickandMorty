@@ -39,7 +39,7 @@ const Episodes = () => {
                     episodes.episodes.map(episode => {
                         return (
                             <div className="card" key={episode.id}>
-                                <div className="card-body">
+                                <div className="cardBody">
                                     <h5 className="card-title">{episode.name}</h5>
                                     <p className="card-text">{episode.air_date}</p>
                                     <p className="card-text">{episode.episode}</p>
@@ -49,8 +49,12 @@ const Episodes = () => {
                     })}
             </div>
             <div className="containerButton">
-                <button className="buttonPage" onClick={() => backPage()}>Back</button>
-                <button className="buttonPage" onClick={() => nextPage()}>Next</button>
+                {
+                    episodes.prev ? <button className="buttonPage" onClick={() => backPage()}>Back</button> : <button className="buttonPageDisable">Back</button>
+                }
+                {
+                    episodes.next ? <button className="buttonPage" onClick={() => nextPage()}>Next</button> : <button className="buttonPageDisable">Next</button>
+                }
             </div>
         </div>
     )

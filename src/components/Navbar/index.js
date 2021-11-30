@@ -57,8 +57,9 @@ const Navbar = () => {
           <a href="/">API Rick&Morty</a>
         </div>
       )}
-      {pathname === "/spicie" && (
+      {pathname === "/species" && (
         <div className="searchContainerCharacter" id="searchContainer">
+          <p>Especies</p>
           <a href="/">API Rick&Morty</a>
         </div>
       )}

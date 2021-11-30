@@ -12,7 +12,7 @@ const Character = () => {
     useEffect(() => {
         axios.get(`https://rickandmortyapi.com/api/character/${pathname.split("/").pop()}`)
             .then(data => setState({...state, character:data.data}))
-    })
+    },[])
     return (
         <div>
           {state.character && <CardCharacter character={state.character}/>}

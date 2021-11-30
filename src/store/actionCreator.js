@@ -32,3 +32,10 @@ export const REQUEST_TO_RESIDENTS = (residents) => {
         payload: residents
     }
 }
+
+export const SELECT_ESPECIES = (species) => {
+    return{
+        type: "SELECT_ESPECIES",
+        payload: species
+    }
+}

@@ -12,13 +12,14 @@ import Navbar from "components/Navbar";
 /* -------------------------------------------------Pages */
 import Home from "pages/Home";
 import Location from "pages/Location";
-import Residents from "pages/Residents";
 import Episodes from "pages/Episodes";
-import Characters from "./pages/Characters";
+import Residents from "pages/Residents";
 import Character from "pages/Character";
+import Characters from "pages/Characters";
 
 /* -------------------------------------------------Pages */
 import "./sass/style.css"
+import Species from "./pages/Species";
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -31,6 +32,7 @@ function App() {
       <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/species" element={<Species />} />
           <Route path="/episode" element={<Episodes />} />
           <Route exact path="/characters" element={<Characters />} />
           <Route path="/character/:id" element={<Character />} />
