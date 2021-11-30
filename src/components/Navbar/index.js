@@ -7,12 +7,17 @@ const Navbar = () => {
   const { pathname } = useLocation();
   const [state, setState] = useState("");
   const dispatch = useDispatch();
+
   const searchChange = () => {
-    dispatch(SearchInput(state));
+    return dispatch(SearchInput(state));
   };
+
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     searchChange();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state]);
+
   return (
     <div className="navbar">
       {pathname === "/" && (

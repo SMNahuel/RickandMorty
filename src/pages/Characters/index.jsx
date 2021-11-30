@@ -29,6 +29,7 @@ const Character = ({search}) => {
                 .then(res => setData({ ...data, character: res.data.results, next: res.data.info.next }))
                 .catch(err => console.log(err))
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [search]);
 
     const nextPage = () => {

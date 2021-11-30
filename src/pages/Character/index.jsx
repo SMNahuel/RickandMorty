@@ -10,8 +10,12 @@ const Character = () => {
         character: ""
     })
     useEffect(() => {
-        axios.get(`https://rickandmortyapi.com/api/character/${pathname.split("/").pop()}`)
-            .then(data => setState({...state, character:data.data}))
+        const getData =() => {
+            axios.get(`https://rickandmortyapi.com/api/character/${pathname.split("/").pop()}`)
+                .then(data => setState({...state, character:data.data}))
+        }
+        getData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     return (
         <div>

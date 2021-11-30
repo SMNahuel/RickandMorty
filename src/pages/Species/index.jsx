@@ -20,6 +20,7 @@ const Species = ({ species }) => {
                     setState({ ...state, results: data.data.results, next: data.data.info.next, prev: data.data.info.prev })
                 })
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [species])
     const nextPage = () => {
         /* -------------------------------------------------Request next page */
