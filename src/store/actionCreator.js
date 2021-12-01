@@ -39,3 +39,16 @@ export const SELECT_ESPECIES = (species) => {
         payload: species
     }
 }
+
+export const SELECT_FILTER_GENDER = (filter) => {
+    return{
+        type: "SELECT_FILTER_GENDER",
+        payload: filter
+    }
+}
+export const SELECT_FILTER_STATUS = (filter) => {
+    return{
+        type: "SELECT_FILTER_STATUS",
+        payload: filter
+    }
+}

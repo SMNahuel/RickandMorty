@@ -1,7 +1,10 @@
 const initialStore = {
+  filter: false,
   search: null,
   species: null,
   characters: [],
+  gender: null,
+  status: null,
   episodes: [],
   locations: {
     data: [],
@@ -31,15 +34,34 @@ function reducer(state = initialStore, action) {
         },
       };
     case "REQUEST_TO_RESIDENTS":
-      return{
+      return {
         ...state,
-        residents: action.payload
-      }
+        residents: action.payload,
+      };
     case "SELECT_ESPECIES":
-      return{
+      return {
         ...state,
-        species: action.payload
-      }
+        species: action.payload,
+      };
+    case "SELECT_FILTER_GENDER":
+      return {
+        ...state,
+        filter: true,
+        gender: action.payload,
+      };
+    case "SELECT_FILTER_STATUS":
+      return {
+        ...state,
+        filter: true,
+        status: action.payload,
+      };
+    case "CLEAR_FILTER":
+      return {
+        ...state,
+        filter: false,
+        gender: null,
+        status: null
+      };
     default:
       return { ...state };
   }

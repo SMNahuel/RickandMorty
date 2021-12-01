@@ -171,7 +171,7 @@ body {
   grid-gap: 20px 20px;
 }
 .card {
-  min-height: 250px ;
+  min-height: 250px;
   background-color: $color-card;
   border-radius: 30px;
   padding: 1em;
@@ -184,19 +184,19 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  h5:hover{
+  h5:hover {
     cursor: pointer;
-    color:white;
+    color: white;
   }
 }
 
-.characterContainer{
+.characterContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.espisodesContainer{
+.espisodesContainer {
   background-color: $color-card;
   border-radius: 30px;
   padding: 1em;
@@ -208,13 +208,13 @@ body {
   margin-top: 1em;
 }
 
-.episode{
+.episode {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  p:hover{
+  p:hover {
     cursor: pointer;
-    color:white;
+    color: white;
   }
 }
 
@@ -230,14 +230,14 @@ body {
   --select-arrow: var(--select-border);
 }
 
-.containerSelect{
+.containerSelect {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 1em;
 }
 
-.selectSpecie{
+.selectSpecie {
   color: $color-card;
   background: $color-button-disable;
   font-family: $font-family;
@@ -257,4 +257,38 @@ body {
   outline: none;
   border-radius: 30px;
   text-align: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.buttonPageActive{
+  background-color: $color-button-active;
+  border-radius: 30px;
+  padding: 1em;
+  margin-left: 1em;
+  font-family: $font-family;
+  color: $letter-color;
+  &:hover {
+    background-color: $color-button-hover;
+  }
+}
+
+.containerFilter{
+  p{
+    color:white;
+  }
+  button{
+    border: none;
+  }
 }
