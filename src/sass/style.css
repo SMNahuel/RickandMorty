@@ -215,6 +215,10 @@ body {
   grid-gap: 20px 20px;
 }
 
+.cardContainer h1 {
+  color: white;
+}
+
 .cardCharacter {
   cursor: pointer;
   background-color: #0b4619;

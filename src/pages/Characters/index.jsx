@@ -21,26 +21,32 @@ const Character = ({ search, filter, status, gender }) => {
 
     useEffect(() => {
         const paramsToRequest = () => {
+            if (search && filter) {
+                if (status && gender) return `?name=${search}&status=${status}&gender=${gender}`
+                if (status) return `?name=${search}&status=${status}`
+                if (gender) return `?name=${search}&gender=${gender}`
+            }
             if (status && gender) return `?status=${status}&gender=${gender}`
             if (gender) return `?gender=${gender}`
             if (status) return `?status=${status}`
+            if (search) return `?name=${search}`
         }
 
         /* -------------------------------------------------Request */
         if (search) {
             axios.get(`https://rickandmortyapi.com/api/character/?name=${search}`)
                 .then(res => setData({ ...data, character: res.data.results, next: res.data.info.next }))
-                .catch(err => console.log(err))
-        } else {
-            axios.get('https://rickandmortyapi.com/api/character/')
-                .then(res => setData({ ...data, character: res.data.results, next: res.data.info.next }))
-                .catch(err => console.log(err))
+                .catch(err => setData({ ...data, character: [] }))
         }
         if (filter) {
             let filters = paramsToRequest()
             axios.get(`https://rickandmortyapi.com/api/character/${filters}`)
                 .then(res => setData({ ...data, character: res.data.results, next: res.data.info.next }))
-                .catch(err => console.log(err))
+                .catch(err => setData({ ...data, character: [] }))
+        } else {
+            axios.get('https://rickandmortyapi.com/api/character/')
+                .then(res => setData({ ...data, character: res.data.results, next: res.data.info.next }))
+                .catch(err => setData({ ...data, character: [] }))
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [search, gender, status]);
@@ -64,11 +70,11 @@ const Character = ({ search, filter, status, gender }) => {
             <Filter />
             <div className="cardContainer">
                 {
-                    data.character && data.character.map((character) => {
+                    data.character.length !== 0 ? (data.character.map((character) => {
                         return (
                             <Card character={character} key={character.id} />
                         )
-                    })
+                    }) ): <h1>No results</h1>
                 }
             </div>
             <div className="containerButton">
