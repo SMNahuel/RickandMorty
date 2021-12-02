@@ -16,7 +16,6 @@ const Character = ({ search, filter, status, gender }) => {
         character: [],
         next: '',
         previous: '',
-        search: search ? search : null
     });
 
     useEffect(() => {
@@ -26,30 +25,31 @@ const Character = ({ search, filter, status, gender }) => {
                 if (status) return `?name=${search}&status=${status}`
                 if (gender) return `?name=${search}&gender=${gender}`
             }
+            if (search) return `?name=${search}`
             if (status && gender) return `?status=${status}&gender=${gender}`
             if (gender) return `?gender=${gender}`
             if (status) return `?status=${status}`
-            if (search) return `?name=${search}`
         }
 
         /* -------------------------------------------------Request */
+        let filters =  paramsToRequest()
         if (search) {
-            axios.get(`https://rickandmortyapi.com/api/character/?name=${search}`)
+            axios.get(`https://rickandmortyapi.com/api/character/${filters}`)
                 .then(res => setData({ ...data, character: res.data.results, next: res.data.info.next }))
                 .catch(err => setData({ ...data, character: [] }))
         }
         if (filter) {
-            let filters = paramsToRequest()
             axios.get(`https://rickandmortyapi.com/api/character/${filters}`)
                 .then(res => setData({ ...data, character: res.data.results, next: res.data.info.next }))
                 .catch(err => setData({ ...data, character: [] }))
-        } else {
+        } 
+        if(!search && !filter) {
             axios.get('https://rickandmortyapi.com/api/character/')
                 .then(res => setData({ ...data, character: res.data.results, next: res.data.info.next }))
                 .catch(err => setData({ ...data, character: [] }))
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [search, gender, status]);
+        // eslint-disable-next-line
+    }, [search, gender, status, filter]);
 
     const nextPage = () => {
         /* -------------------------------------------------Request next page */

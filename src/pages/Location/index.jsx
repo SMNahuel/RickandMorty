@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, connect } from 'react-redux';
 import { requestTo, firstRequest, requestResidents } from 'utils/page';
 import { useNavigate } from 'react-router';
+
 const Location = ({ locations }) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -53,6 +54,7 @@ const Location = ({ locations }) => {
         </div>
     );
 }
+
 const mapStateToProps = (state) => ({
     locations: state.locations
 })

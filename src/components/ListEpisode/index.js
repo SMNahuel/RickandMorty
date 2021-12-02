@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const ListEpisode = ({ episode }) => {
+const ListEpisode = ({ episode, saveCharVisit }) => {
+
   const [state, setState] = useState();
   useEffect(() => {
     const getData = async () => {
@@ -10,6 +11,7 @@ const ListEpisode = ({ episode }) => {
       });
     };
     getData();
+    
   }, [episode]);
   return (
     <div className="episode">

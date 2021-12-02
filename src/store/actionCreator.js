@@ -46,9 +46,16 @@ export const SELECT_FILTER_GENDER = (filter) => {
         payload: filter
     }
 }
+
 export const SELECT_FILTER_STATUS = (filter) => {
     return{
         type: "SELECT_FILTER_STATUS",
         payload: filter
+    }
+}
+
+export const CLEAR_FILTER = () => {
+    return{
+        type: "CLEAR_FILTER"
     }
 }

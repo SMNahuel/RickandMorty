@@ -1,22 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { SearchInput } from "store/actionCreator";
 
 const Navbar = () => {
   const { pathname } = useLocation();
-  const [state, setState] = useState("");
   const dispatch = useDispatch();
 
-  const searchChange = () => {
-    return dispatch(SearchInput(state));
+  const searchChange = (value) => {
+    return dispatch(SearchInput(value));
   };
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    searchChange();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state]);
 
   return (
     <div className="navbar">
@@ -28,13 +21,13 @@ const Navbar = () => {
       {pathname === "/episode" && (
         <div className="searchContainerCharacter" id="searchContainer">
           <p>Pagina de episodios</p>
-          <a href="/">API Rick&Morty</a>
+          <a href="/">Home</a>
         </div>
       )}
       {pathname.split("/")[1] === "character" && (
         <div className="searchContainerCharacter" id="searchContainer">
           <p>Información </p>
-          <a href="/">API Rick&Morty</a>
+          <a href="/">Home</a>
         </div>
       )}
       {pathname === "/characters" && (
@@ -43,27 +36,27 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Buscar personaje"
-            onChange={(e) => setState(e.target.value)}
+            onChange={(e) => searchChange(e.target.value)}
           />
-          <a href="/">API Rick&Morty</a>
+          <a href="/">Home</a>
         </div>
       )}
       {pathname === "/locations" && (
         <div className="searchContainerCharacter" id="searchContainer">
           <p>Lugares de la serie</p>
-          <a href="/">API Rick&Morty</a>
+          <a href="/">Home</a>
         </div>
       )}
       {pathname === "/locations/residents" && (
         <div className="searchContainerCharacter" id="searchContainer">
           <p>Residentes de </p>
-          <a href="/">API Rick&Morty</a>
+          <a href="/">Home</a>
         </div>
       )}
       {pathname === "/species" && (
         <div className="searchContainerCharacter" id="searchContainer">
           <p>Especies</p>
-          <a href="/">API Rick&Morty</a>
+          <a href="/">Home</a>
         </div>
       )}
     </div>

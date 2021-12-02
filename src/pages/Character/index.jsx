@@ -9,6 +9,7 @@ const Character = () => {
         id : pathname.split("/").pop(),
         character: ""
     })
+    
     useEffect(() => {
         const getData =() => {
             axios.get(`https://rickandmortyapi.com/api/character/${pathname.split("/").pop()}`)

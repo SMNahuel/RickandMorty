@@ -2,6 +2,7 @@ import { connect, useDispatch } from "react-redux";
 import {
   SELECT_FILTER_GENDER,
   SELECT_FILTER_STATUS,
+  CLEAR_FILTER,
 } from "store/actionCreator";
 
 const Filter = ({ gender, status }) => {
@@ -14,6 +15,10 @@ const Filter = ({ gender, status }) => {
   const handleFilterStatus = (e) => {
     const { id } = e.target;
     dispatch(SELECT_FILTER_STATUS(id));
+  };
+
+  const handleClear = () => {
+    dispatch(CLEAR_FILTER());
   };
   return (
     <div className="containerFilter">
@@ -131,6 +136,13 @@ const Filter = ({ gender, status }) => {
                   Desconocidos
                 </button>
               )}
+              <button
+                onClick={() => handleClear()}
+                className="buttonPage"
+                
+              >
+                Sin filtros
+              </button>
             </div>
           </div>
         </div>
