@@ -16,8 +16,7 @@ const Character = () => {
                 .then(data => setState({...state, character:data.data}))
         }
         getData();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    },[pathname,state])
     return (
         <div>
           {state.character && <CardCharacter character={state.character}/>}
