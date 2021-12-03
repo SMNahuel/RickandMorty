@@ -9,8 +9,7 @@ const Location = ({ locations }) => {
 
     useEffect(() => {
         firstRequest(dispatch)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [dispatch]);
 
     const handleResidents = (residents) => {
         requestResidents(dispatch, residents, navigate)
