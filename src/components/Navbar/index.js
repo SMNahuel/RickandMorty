@@ -49,7 +49,7 @@ const Navbar = () => {
       )}
       {pathname === "/locations/residents" && (
         <div className="searchContainerCharacter" id="searchContainer">
-          <p>Residentes de </p>
+          <p>Residentes </p>
           <a href="/">Home</a>
         </div>
       )}
