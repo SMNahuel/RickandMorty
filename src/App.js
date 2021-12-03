@@ -11,6 +11,7 @@ import Navbar from "components/Navbar";
 
 /* -------------------------------------------------Pages */
 import Home from "pages/Home";
+import Species from "pages/Species";
 import Location from "pages/Location";
 import Episodes from "pages/Episodes";
 import Residents from "pages/Residents";
@@ -19,7 +20,6 @@ import Characters from "pages/Characters";
 
 /* -------------------------------------------------Pages */
 import "./sass/style.css"
-import Species from "./pages/Species";
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
